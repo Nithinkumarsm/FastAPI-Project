@@ -72,3 +72,4 @@ def delete_book(book_id: int):
             return{"message": "Your book is deleted"}
         
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Book not found") 
+
