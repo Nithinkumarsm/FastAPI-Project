@@ -18,15 +18,15 @@ def greet():
 # def greet_name(name: str):
 #     return {"message": f"Hello {name} from FastAPI!"}
 
-@app.get("/greet/{name}") 
-def greet_name(name: str,age: int): # Query parameter to greet a specific name with age (in the URL, it will be http://127.0.0.1:8000/greet/{name}?age=30)
-    return {"message": f"Hello {name}, you are {age}. Welcome to FastAPI!"}
-
 # @app.get("/greet/{name}") 
-# def greet_name(name: str,age: Optional[int] = None): # Query parameter to greet a specific name with optional age (in the URL, it will be http://127.0.0.1:8000/greet/{name}?
-#     if age is None:
-#         return {"message": f"Hello {name}, I don't know your age. Welcome to FastAPI!"}
+# def greet_name(name: str,age: int): # Query parameter to greet a specific name with age (in the URL, it will be http://127.0.0.1:8000/greet/{name}?age=30)
 #     return {"message": f"Hello {name}, you are {age}. Welcome to FastAPI!"}
+
+@app.get("/greet/{name}") 
+def greet_name(name: str,age: Optional[int] = None): # Query parameter to greet a specific name with optional age (in the URL, it will be http://127.0.0.1:8000/greet/{name}?
+    if age is None:
+        return {"message": f"Hello {name}, I don't know your age. Welcome to FastAPI!"}
+    return {"message": f"Hello {name}, you are {age}. Welcome to FastAPI!"}
 
 #Note: query parameter starts with ? and is followed by key=value pairs, multiple query parameters can be separated by & (e.g., http://127.0.0.1:8000/greet/John?age=30)
 

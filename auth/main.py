@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends,HTTPException,status
 from sqlalchemy.orm import Session
-import model,schemas,util
-from auth_database import get_db
+from auth import model,schemas,util
+from auth.auth_database import get_db
 from jose import JWTError, jwt # Importing the JWTError and jwt functions from the jose library, which are used for handling JSON Web Tokens (JWT) in the authentication process.
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
